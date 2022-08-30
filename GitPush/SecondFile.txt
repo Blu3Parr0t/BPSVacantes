@@ -1,3 +1,8 @@
 fun AlexisFunctionIsHere() {
 print("Alexis is number 1")
+print("No... Joe is number 1")
+}
+
+fun JoesNewFunction() {
+print("Joe is da coolest cat around")
 }
