@@ -1,3 +1,7 @@
+fun thisIsAnotherFunction() {
+print("I changed this file too")
+}
+
 fun AlexisFunctionIsHere() {
 print("Alexis is number 1")
 print("No... Joe is number 1")
