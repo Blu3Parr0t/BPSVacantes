@@ -39,8 +39,17 @@ class Fragment1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("Zelda", "Fragment 1 onViewCreated")
-
         doUIFunctions()
+        setLiveData()
+    }
+
+    private fun setLiveData() {
+        viewModel.usedDatabase.observe(viewLifecycleOwner, { usedDB ->
+            if(usedDB) {
+                bind.DBName.boxStrokeColor = resources.getColor(R.color.myCustomColor, null)
+                bind.DBWeapon.boxStrokeColor = resources.getColor(R.color.myCustomColor, null)
+            }
+        })
     }
 
     private fun doUIFunctions() {

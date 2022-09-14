@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
@@ -47,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Joker!!"
-            android:visibility="@{viewModel.isJokerHere ? View.VISIBLE : View.GONE}"
-            android:textSize="34dp" />
+            android:textSize="34dp"
+            android:visibility="@{viewModel.isJokerHere ? View.VISIBLE : View.GONE}" />
 
         <TextView
             android:id="@+id/henchmen"
@@ -58,6 +60,48 @@
             android:text="Unleash the Henchmen"
             android:textSize="34dp"
             android:visibility="@{viewModel.isJokerHere ? View.VISIBLE : View.GONE}" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/DBName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Recruit Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/DBNameTI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="@{viewModel.recruitName}"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/DBWeapon"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weapon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/DBWeaponTI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="@{viewModel.recruitWeapon}"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/showRecruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{() -> viewModel.getNewestRecruit()}"
+            android:text="Show newest Recruit"/>
 
     </LinearLayout>
 </layout>
